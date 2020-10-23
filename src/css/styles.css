@@ -96,16 +96,16 @@ body.dark-theme {
   transition: transform 250ms var(--timing-function);
 }
 
-.theme-switch__toggle:checked + .theme-switch__track {
+.theme-switch__toggle:checked+.theme-switch__track {
   background-color: #d3d3d4;
 }
 
-.theme-switch__toggle:checked ~ .theme-switch__marker {
+.theme-switch__toggle:checked~.theme-switch__marker {
   transform: translateX(35px);
 }
 
-.theme-switch__toggle:focus + .theme-switch__track,
-.theme-switch__toggle:active + .theme-switch__track {
+.theme-switch__toggle:focus+.theme-switch__track,
+.theme-switch__toggle:active+.theme-switch__track {
   box-shadow: 0 0 0 3px #2196f3;
 }
 
