@@ -3,30 +3,33 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-const themeToggleRef = document.querySelector('#theme-switch-toggle');
-const bodyRef = document.querySelector('body');
+const refs = {
+    themeToggle: document.querySelector('#theme-switch-toggle'),
+    body: document.querySelector('body'),
+};
 
-const lightTheme = bodyRef.className = `${ Theme.LIGHT }`;
 
-themeToggleRef.addEventListener('change', handleCheckboxClick);
+const lightTheme = refs.body.className = `${ Theme.LIGHT }`;
+
+refs.themeToggle.addEventListener('change', handleCheckboxClick);
 
 function handleCheckboxClick(e) {
     if (e.target.checked) {
-        bodyRef.classList.add(`${Theme.DARK}`);
-        bodyRef.classList.remove(`${Theme.LIGHT}`); 
+        refs.body.classList.add(`${Theme.DARK}`);
+        refs.body.classList.remove(`${Theme.LIGHT}`); 
         localStorage.setItem('theme', `${Theme.DARK}`);
     }
     else {
-        bodyRef.classList.add(`${Theme.LIGHT}`);
-        bodyRef.classList.remove(`${Theme.DARK}`); 
+        refs.body.classList.add(`${Theme.LIGHT}`);
+        refs.body.classList.remove(`${Theme.DARK}`); 
         localStorage.setItem('theme', `${Theme.LIGHT}`);
     }
 }
 
 const bodyClassNameTheme = localStorage.getItem('theme');
 
- bodyRef.className = `${bodyClassNameTheme}`;
+ refs.body.className = `${bodyClassNameTheme}`;
 
 if (bodyClassNameTheme === `${Theme.DARK}`) {
-    themeToggleRef.checked = true;
+    refs.themeToggle.checked = true;
 }
